@@ -1,0 +1,51 @@
+@use '../styles/mixins';
+@import '../styles/variables';
+
+.home-container {
+  background-image: url(../assets/home/background-home-desktop.jpg);
+  background-size: cover;
+  @include mixins.DisplayFlex(space-between, flex-end, row, nowrap);
+}
+
+.home--text {
+  @include mixins.DisplayFlex(center, flex-start, column, nowrap);
+  width: 44.4rem;
+  gap: 24px;
+  margin: 0 0 13.1rem 16.5rem;
+}
+
+.home-btn {
+  position: relative;
+  min-height: 27.4rem;
+  min-width: 27.4rem;
+  border-radius: 50%;
+  border: none;
+  background-color: $white;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  margin: 0 16.5rem 13.1rem 16.5rem;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    background-color: rgba($white, 0.1036);
+    transform: translate3d(-50%, -50%, -1px);
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    &::after {
+      height: 45rem;
+      width: 45rem;
+    }
+  }
+}
+
+.home-btn--text {
+  color: $darkBlue;
+}
