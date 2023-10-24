@@ -1,0 +1,90 @@
+@use '../../styles/mixins';
+@import '../../styles/variables';
+
+.nav {
+  @include mixins.DisplayFlex(space-between, center, row, nowrap);
+  position: absolute;
+  top: 0;
+  height: 9.6rem;
+  width: 100vw;
+  padding-left: 5.5rem;
+  transform: translateY(4rem);
+}
+
+.links {
+  position: relative;
+  @include mixins.DisplayFlex(flex-start, center, row, nowrap);
+  gap: 3.2rem;
+  height: 100%;
+  background-color: rgba($white, 0.04);
+  backdrop-filter: blur(40.774227142333984px);
+  padding: 0 16.5rem 0 12.3rem;
+
+  li {
+    height: 100%;
+    list-style: none;
+  }
+}
+
+.link {
+  @include mixins.DisplayFlex(flex-start, center, row, nowrap);
+  gap: 1.2rem;
+  position: relative;
+  height: 100%;
+
+  &:visited,
+  &:link {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: 3px;
+    transition: all 0.5s;
+    background-color: rgba($white, 0);
+  }
+
+  &:hover {
+    &::after {
+      position: absolute;
+      bottom: 0;
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-color: rgba($white, 0.5021);
+    }
+  }
+}
+
+.logo {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.line {
+  position: absolute;
+  transform: translateX(calc(-100% - 93px));
+  width: 47.3rem;
+  height: 1px;
+  background-color: $white;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.active {
+  &::after {
+    background-color: $white;
+  }
+
+  &:hover {
+    &::after {
+      background-color: $white;
+    }
+  }
+}
