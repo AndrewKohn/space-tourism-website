@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+h5 {
+  text-transform: uppercase;
+
+  @media screen and (max-width: #{map-get($breakpoints, 'tablet')}) {
+    font-size: 2rem !important;
+    letter-spacing: 3.375px !important;
+  }
+
+  @media screen and (max-width: #{map-get($breakpoints, 'mobile')}) {
+    font-size: 1.6rem !important;
+    letter-spacing: 2.7px !important;
+  }
+
+  span {
+    opacity: 0.25;
+    margin-right: 2.8rem;
+
+    @media screen and (max-width: #{map-get($breakpoints, 'tablet')}) {
+      margin-right: 1.8rem;
+    }
+  }
+}
