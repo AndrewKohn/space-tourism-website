@@ -2,16 +2,86 @@
 @import '../styles/variables';
 
 .home-container {
-  background-image: url(../assets/home/background-home-desktop.jpg);
-  background-size: cover;
   @include mixins.DisplayFlex(space-between, flex-end, row, nowrap);
+  background-size: cover;
+  overflow-y: hidden;
+
+  h4 {
+    letter-spacing: 2px;
+  }
+
+  @media screen and (min-width: #{map-get($breakpoints, 'desktop')}) {
+    background-image: url(../assets/home/background-home-desktop.jpg);
+  }
+
+  @media screen and (min-width: #{map-get($breakpoints, 'mobile')}) and (max-width: #{map-get($breakpoints, 'desktop')}) {
+    background-image: url(../assets/home/background-home-tablet.jpg);
+    background-position: center bottom;
+    @include mixins.DisplayFlex(center, center, column, nowrap);
+    padding-top: 12.43rem;
+
+    h5 {
+      font-size: 2rem;
+      margin: 0 auto;
+    }
+
+    .home-btn {
+      min-height: 24.2rem;
+      min-width: 24.2rem;
+      margin: 0;
+    }
+
+    .home--text {
+      text-align: center;
+      font-size: 1.6rem;
+      margin: 0 0 15.6rem 0;
+    }
+  }
+
+  @media screen and (max-width: #{map-get($breakpoints, 'mobile')}) {
+    background-image: url(../assets/home/background-home-mobile.jpg);
+    @include mixins.DisplayFlex(center, center, column, nowrap);
+    background-position: center bottom;
+    gap: 8.1rem;
+
+    h1 {
+      font-size: 8rem;
+      margin: 0 auto;
+    }
+
+    h4 {
+      font-size: 2rem;
+      letter-spacing: 1.25px;
+    }
+
+    h5 {
+      font-size: 1.6rem;
+      margin: 8.93rem auto 0 auto;
+    }
+
+    .home-btn {
+      min-height: 15rem;
+      min-width: 15rem;
+    }
+
+    .home--text {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .home--text {
   @include mixins.DisplayFlex(center, flex-start, column, nowrap);
-  width: 44.4rem;
+  width: 45rem;
   gap: 24px;
   margin: 0 0 13.1rem 16.5rem;
+
+    @media screen and (max-width: #{map-get($breakpoints, 'mobile')}) {
+    width: 32.7rem;
+    margin: 0 auto;
+  }
+
 }
 
 .home-btn {
@@ -24,6 +94,7 @@
   cursor: pointer;
   transform-style: preserve-3d;
   margin: 0 16.5rem 13.1rem 16.5rem;
+  z-index: 0;
 
   &::after {
     position: absolute;

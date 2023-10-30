@@ -1,4 +1,5 @@
 import './Home.scss';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -13,9 +14,11 @@ const Home = () => {
           experience!
         </p>
       </div>
-      <button className="home-btn">
-        <h4 className="home-btn--text">EXPLORE</h4>
-      </button>
+      <Link to='/destination'>
+        <button className="home-btn">
+          <h4 className="home-btn--text">EXPLORE</h4>
+        </button>
+      </Link>
     </section>
   );
 };
