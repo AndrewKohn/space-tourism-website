@@ -2,13 +2,33 @@
 @import '../../styles/variables';
 
 .nav {
-  @include mixins.DisplayFlex(space-between, center, row, nowrap);
-  position: absolute;
+  @include mixins.DisplayFlex(space-between, center, row, wrap);
+  position: fixed;
   top: 0;
   height: 9.6rem;
-  width: 100vw;
-  padding-left: 5.5rem;
+  width: 100%;
+  z-index: 20;
   transform: translateY(4rem);
+
+  @media screen and (min-width: #{map-get($breakpoints, 'mobile')}) and (max-width: #{map-get($breakpoints, 'desktop')}) {
+    transform: translateY(0);
+
+    .line {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    .links {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    .button--mobile-nav {
+      display: none;
+    }
+  }
 }
 
 .links {
@@ -23,6 +43,15 @@
   li {
     height: 100%;
     list-style: none;
+  }
+
+  @media screen and (max-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    @include mixins.DisplayFlex(flex-start, flex-start, column, nowrap);
+    margin: 11.8rem 0 0 3.2rem;
+    padding: 0;
+    height: auto;
+    background-color: rgba($white, 0);
+    backdrop-filter: blur(0);
   }
 }
 
@@ -63,6 +92,7 @@
 .logo {
   height: 4.8rem;
   width: 4.8rem;
+  margin-left: 5.5rem;
 }
 
 .line {
@@ -85,6 +115,41 @@
   &:hover {
     &::after {
       background-color: $white;
+    }
+  }
+}
+
+// MOBILE NAV
+.button--mobile-nav {
+  margin-right: 2.4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  z-index: 20;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  @include mixins.DisplayFlex(flex-start, flex-start, column, nowrap);
+  top: 0;
+  right: 0;
+  width: 25.4rem;
+  height: 100vh;
+  background-color: rgba($white, 0.04);
+  backdrop-filter: blur(40.774227142333984px);
+  z-index: 5;
+
+  @media screen and (min-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    display: none;
+
+    .links {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    .line {
+      display: none;
     }
   }
 }
