@@ -1,10 +1,17 @@
 $breakpoints: (
+  // 'desktop': '1440px',
+  // 'tablet': '768px',
+  // 'mobile': '375px',
   'desktop': '1440px',
-  'tablet': '768px',
-  'mobile': '375px',
+  'tablet': '962px',
+  'mobile': '600px'
 );
 
 // Colors
 $darkBlue: #0b0d17;
 $lightBlue: #d0d6f9;
 $white: #ffffff;
+
+// Time
+$oneSecond: 1s;
+$fourTenthsSecond: 0.4s;
