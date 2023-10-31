@@ -19,6 +19,7 @@ const NavBar = () => {
             className={`link ${`/${link}` === location ? 'active' : ''} ${
               link === 'home' && '/' === location ? 'active' : ''
             }`}
+            onClick={mobileNavHandler}
           >
             <p className="nav-text">
               <strong className="bold">0{key}</strong>
@@ -55,9 +56,12 @@ const NavBar = () => {
         </button>
       </nav>
       {isMobileNavOpen ? (
-        <div className="mobile-nav-menu">
-          {navLinks(['home', 'destination', 'crew', 'technology'])}
-        </div>
+        <>
+          <div className="nav-backdrop" onClick={mobileNavHandler}></div>
+          <div className="mobile-nav-menu anim--slide-left">
+            {navLinks(['home', 'destination', 'crew', 'technology'])}
+          </div>
+        </>
       ) : (
         ''
       )}

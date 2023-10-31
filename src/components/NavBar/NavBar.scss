@@ -138,6 +138,7 @@
   background-color: rgba($white, 0.04);
   backdrop-filter: blur(40.774227142333984px);
   z-index: 5;
+  transition: all 1s;
 
   @media screen and (min-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
     display: none;
@@ -151,5 +152,30 @@
     .line {
       display: none;
     }
+  }
+}
+
+.nav-backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+
+  @media screen and (min-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
+    display: none;
+  }
+}
+
+.anim--slide-left {
+  transform: translateX(0);
+  animation: nav--slide-left 0.2s ease;
+}
+
+@keyframes nav--slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
