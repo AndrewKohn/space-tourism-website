@@ -1,0 +1,36 @@
+@use '../styles/mixins';
+@import '../styles/variables';
+
+.destination-container {
+  @include mixins.DisplayFlex(flex-end, center, column, nowrap);
+  background-image: url('../assets/destination/background-destination-desktop.jpg');
+  background-size: cover;
+}
+
+.destination-content {
+  @include mixins.DisplayFlex(center, flex-start, column, nowrap);
+  gap: 6.4rem;
+  margin-bottom: 11.2rem;
+}
+
+.destination-wrapper {
+  @include mixins.DisplayFlex(center, flex-end, row, nowrap);
+  gap: 15.7rem;
+}
+
+.destination-img {
+  @include mixins.ToFullOpacityAnim($oneSecond);
+  width: 44.5rem;
+  height: 44.5rem;
+  margin: auto 5.4rem;
+  margin-top: 3.3rem;
+}
+
+.destination-descriptions {
+  width: 44.5rem;
+  height: 47.2rem;
+}
+
+.destination--text-wrapper {
+  @include mixins.ToFullOpacityAnim($oneSecond);
+}
