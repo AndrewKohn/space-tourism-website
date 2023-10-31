@@ -7,3 +7,16 @@
   flex-direction: $direction;
   flex-wrap: $wrap;
 }
+
+@mixin ToFullOpacityAnim($time) {
+  animation: to-full-opacity $time ease;
+}
+
+@keyframes to-full-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
