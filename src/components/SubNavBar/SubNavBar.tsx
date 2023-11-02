@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import IDestination from '../../types/IDestination';
 import './SubNavBar.scss';
 import ICrew from '../../types/ICrew';
@@ -7,12 +7,14 @@ import ITechnology from '../../types/ITechnology';
 interface Props {
   subNavType: string;
   PageData: IDestination[] | ICrew[] | ITechnology[];
+  navState: string | undefined;
+  setNavState: (currentState: string) => void;
 }
 
-const SubNavBar = ({ subNavType, PageData }: Props) => {
-  const [navState, setNavState] = useState<string>(
-    PageData[0].name.toLowerCase()
-  );
+const SubNavBar = ({ subNavType, PageData, navState, setNavState }: Props) => {
+  useEffect(() => {
+    if (navState === undefined) setNavState(PageData[0].name.toLowerCase());
+  });
 
   const links = PageData.map((data, key: number) => (
     <li key={key}>
@@ -24,7 +26,7 @@ const SubNavBar = ({ subNavType, PageData }: Props) => {
         }`}
         onClick={() => setNavState(data.name.toLowerCase())}
       >
-        {subNavType === 'string' ? data.name : ''}
+        {subNavType === 'string' ? <p className="nav-text">{data.name}</p> : ''}
         {subNavType === 'buttons' ? key + 1 : ''}
       </button>
     </li>
