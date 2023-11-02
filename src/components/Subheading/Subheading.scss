@@ -16,6 +16,7 @@ h5 {
   span {
     opacity: 0.25;
     margin-right: 2.8rem;
+    font-weight: 700;
 
     @media screen and (max-width: #{map-get($breakpoints, 'tablet')}) {
       margin-right: 1.8rem;
