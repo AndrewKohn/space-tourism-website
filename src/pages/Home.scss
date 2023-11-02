@@ -73,15 +73,19 @@
 
 .home--text {
   @include mixins.DisplayFlex(center, flex-start, column, nowrap);
+  @include mixins.ToFullOpacityAnim($oneSecond);
   width: 45rem;
   gap: 24px;
   margin: 0 0 13.1rem 16.5rem;
 
-    @media screen and (max-width: #{map-get($breakpoints, 'mobile')}) {
+  @media screen and (max-width: #{map-get($breakpoints, 'mobile')}) {
     width: 32.7rem;
     margin: 0 auto;
   }
+}
 
+.cta-btn {
+  margin: 0 16.5rem 13.1rem 16.5rem;
 }
 
 .home-btn {
@@ -93,7 +97,6 @@
   background-color: $white;
   cursor: pointer;
   transform-style: preserve-3d;
-  margin: 0 16.5rem 13.1rem 16.5rem;
   z-index: 0;
 
   &::after {
@@ -106,6 +109,7 @@
     border-radius: 50%;
     background-color: rgba($white, 0.1036);
     transform: translate3d(-50%, -50%, -1px);
+    pointer-events: none;
     transition: all 0.2s;
   }
 

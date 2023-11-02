@@ -14,7 +14,7 @@ const Home = () => {
           experience!
         </p>
       </div>
-      <Link to='/destination'>
+      <Link to="/destination" className="cta-btn">
         <button className="home-btn">
           <h4 className="home-btn--text">EXPLORE</h4>
         </button>
