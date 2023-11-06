@@ -18,6 +18,10 @@
     }
   }
 
+  @media screen and (max-width: #{map-get($breakpoints, 'tablet')}) {
+    transform: translateY(0);
+  }
+
   @media screen and (max-width: calc(400px + #{map-get($breakpoints, 'mobile')})) {
     .links {
       display: none;
