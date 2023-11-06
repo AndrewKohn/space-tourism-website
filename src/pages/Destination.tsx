@@ -33,8 +33,9 @@ const Destination = ({ PageData }: Props) => {
               />
               <div className="destination--text-wrapper">
                 <h2>{data.name}</h2>
-                <p>{data.description}</p>
-                <div>
+                <p className="destination--description">{data.description}</p>
+                <hr className="divider" />
+                <div className="destination--details">
                   <div>
                     <p className="subheading-2">AVG. DISTANCE</p>
                     <p className="subheading-1">{data.distance}</p>
