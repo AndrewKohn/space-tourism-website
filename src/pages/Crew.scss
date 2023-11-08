@@ -1,0 +1,56 @@
+@use '../styles/mixins';
+@import '../styles/variables';
+
+.crew-container {
+  @include mixins.DisplayFlex(flex-end, center, column, nowrap);
+  background-image: url('../assets/crew/background-crew-desktop.jpg');
+  background-size: cover;
+}
+
+.crew-content {
+  @include mixins.DisplayFlex(flex-start, flex-end, row, nowrap);
+  height: 80rem;
+  width: 120rem;
+  gap: 8rem;
+}
+
+.crew-wrapper {
+  @include mixins.DisplayFlex(flex-end, space-between, column, nowrap);
+  margin-bottom: 9.4rem;
+  min-width: 60rem;
+  max-height: 61rem;
+
+  h3 {
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  h4 {
+    opacity: 0.5042;
+    text-transform: uppercase;
+    margin-top: 15.4rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.crew-descriptions {
+  @include mixins.ToFullOpacityAnim($oneSecond);
+}
+
+.crew-bio {
+  width: 44.4rem;
+  color: #d0d6f9;
+  font-size: 1.8rem;
+  line-height: 32px;
+  margin-top: 2.7rem;
+  margin-bottom: 12rem;
+}
+
+.crew-bio--longer {
+  width: 50rem;
+}
+
+.crew-img {
+  @include mixins.ToFullOpacityAnim($oneSecond);
+  width: 56.8rem;
+}
