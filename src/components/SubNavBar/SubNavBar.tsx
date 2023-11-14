@@ -33,7 +33,10 @@ const SubNavBar = ({ subNavType, PageData, navState, setNavState }: Props) => {
   ));
 
   return (
-    <nav aria-label="sub-navigation" className="sub-nav">
+    <nav
+      aria-label="sub-navigation"
+      className={`${subNavType === 'string' ? 'sub-nav--string' : ''}`}
+    >
       <ul className="sub-nav--links ">{links}</ul>
     </nav>
   );
