@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
+@use './styles/mixins';
 @import './styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
 
 * {
   margin: 0;
@@ -83,4 +84,9 @@ main {
 section {
   width: 100vw;
   height: 100vh;
+  @include mixins.ToFullOpacityAnim($fourTenthsSecond);
+}
+
+ul {
+  list-style: none;
 }
