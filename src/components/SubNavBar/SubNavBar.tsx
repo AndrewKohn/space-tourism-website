@@ -20,7 +20,7 @@ const SubNavBar = ({ subNavType, PageData, navState, setNavState }: Props) => {
     <li key={key}>
       <button
         className={`${subNavType === 'string' ? 'nav--string' : ''} ${
-          subNavType === 'dots' ? 'nav--dots' : ''
+          subNavType === 'dots' ? 'nav--dot' : ''
         } ${subNavType === 'buttons' ? 'nav--buttons' : ''} ${
           navState === data.name.toLowerCase() ? 'sub-nav--active' : ''
         }`}
@@ -37,7 +37,11 @@ const SubNavBar = ({ subNavType, PageData, navState, setNavState }: Props) => {
       aria-label="sub-navigation"
       className={`${subNavType === 'string' ? 'sub-nav--string' : ''}`}
     >
-      <ul className="sub-nav--links ">{links}</ul>
+      <ul
+        className={`sub-nav--links ${subNavType === 'dots' ? 'nav--dots' : ''}`}
+      >
+        {links}
+      </ul>
     </nav>
   );
 };
